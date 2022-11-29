@@ -1,29 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
-
-let messageData = "";
 
 const sendDataToReactNativeApp = async () => {
   window.postMessage("It is Data from WebView / Website");
 };
-
 window.addEventListener("message", (message) => {
   alert(message.data);
-  messageData = message.data;
 });
 
-function App() {
-  const [message, setMessage] = useState("");
-  setMessage(messageData);
+export function App() {
   return (
     <div className="App">
-      <p>Webview to native</p>
-      <p>{message}</p>
-      <button onClick={() => sendDataToReactNativeApp()}>
-        Send Data To React Native App
+      <p>Webview / Website</p>
+      <button className="button" onClick={() => sendDataToReactNativeApp()}>
+        Send Data To React Native
       </button>
     </div>
   );
 }
-
-export default App;
