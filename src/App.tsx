@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <p>Native to webview</p>
+      <p>Native to webview app</p>
     </div>
   );
 }
