@@ -10,9 +10,9 @@ export const MobilePage = () => {
     setState(message.data);
   });
   const [state, setState] = useState();
-//   window.addEventListener("message", (message) => {
-//     setState(message.data);
-//   });
+  //   window.addEventListener("message", (message) => {
+  //     setState(message.data);
+  //   });
   return (
     <div className="App">
       <p>Webview / Website</p>
