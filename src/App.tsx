@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 import "./App.css";
 
-// const sendDataToReactNativeApp = async () => {
-//   window.ReactNativeWebView.postMessage("It is Data from WebView / Website");
-// };
-// const button = document.querySelector(".button");
-// button.addEventListener("click", () => sendDataToReactNativeApp());
-// let sendDataToReactNativeApp: VoidFunction;
+const sendDataToReactNativeApp = async () => {
+  window.ReactNativeWebView.postMessage("It is Data from WebView / Website");
+};
 
 window.addEventListener("message", (message) => {
-  // alert(message.data);
+  alert(message.data);
 });
 
 export function App() {
   const [state, setState] = useState();
-  window.addEventListener("message", (message) => {
-    const data = message.data;
-    if (typeof data === "string") {
-      setState(message.data);
-    }
-  });
+  // window.addEventListener("message", (message) => {
+  //   setState(message.data);
+  // });
   return (
     <div className="App">
       <p>Webview / Website</p>
       <p>{state}</p>
-      <button className="button">Send Data To React Native</button>
+      <button onClick={sendDataToReactNativeApp} className="button">
+        Send Data To React Native
+      </button>
     </div>
   );
 }
