@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const sendDataToReactNativeApp = async () => {
-  window.postMessage("It is Data from WebView / Website");
-};
+// const sendDataToReactNativeApp = async () => {
+//   window.ReactNativeWebView.postMessage("It is Data from WebView / Website");
+// };
+
+let sendDataToReactNativeApp: VoidFunction;
+
 window.addEventListener("message", (message) => {
   alert(message.data);
 });
@@ -11,7 +14,10 @@ window.addEventListener("message", (message) => {
 export function App() {
   const [state, setState] = useState();
   window.addEventListener("message", (message) => {
-    setState(message.data);
+    const data = message.data;
+    if (typeof data === "string") {
+      setState(message.data);
+    }
   });
   return (
     <div className="App">
