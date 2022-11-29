@@ -11,7 +11,7 @@ window.addEventListener("message", (message) => {
 export const MobilePage = () => {
   const [state, setState] = useState();
   window.addEventListener("message", (message) => {
-    setState(message);
+    setState(message.data);
   });
   return (
     <div className="App">
