@@ -4,11 +4,12 @@ import "./App.css";
 // const sendDataToReactNativeApp = async () => {
 //   window.ReactNativeWebView.postMessage("It is Data from WebView / Website");
 // };
-
-let sendDataToReactNativeApp: VoidFunction;
+// const button = document.querySelector(".button");
+// button.addEventListener("click", () => sendDataToReactNativeApp());
+// let sendDataToReactNativeApp: VoidFunction;
 
 window.addEventListener("message", (message) => {
-  alert(message.data);
+  // alert(message.data);
 });
 
 export function App() {
@@ -23,9 +24,9 @@ export function App() {
     <div className="App">
       <p>Webview / Website</p>
       <p>{state}</p>
-      <button className="button" onClick={() => sendDataToReactNativeApp()}>
-        Send Data To React Native
-      </button>
+      <button className="button">Send Data To React Native</button>
     </div>
   );
 }
+
+// onClick={() => sendDataToReactNativeApp()}
