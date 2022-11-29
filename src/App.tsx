@@ -4,11 +4,9 @@ import "./App.css";
 const sendDataToReactNativeApp = async () => {
   window.ReactNativeWebView.postMessage("It is Data from WebView / Website");
 };
-
 window.addEventListener("message", (message) => {
   alert(message.data);
 });
-
 export function App() {
   const [state, setState] = useState();
   window.addEventListener("message", (message) => {
@@ -24,5 +22,3 @@ export function App() {
     </div>
   );
 }
-
-// onClick={() => sendDataToReactNativeApp()}
