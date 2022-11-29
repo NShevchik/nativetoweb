@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 const sendDataToReactNativeApp = async () => {
@@ -9,9 +9,14 @@ window.addEventListener("message", (message) => {
 });
 
 export function App() {
+  const [state, setState] = useState();
+  window.addEventListener("message", (message) => {
+    setState(message.data);
+  });
   return (
     <div className="App">
       <p>Webview / Website</p>
+      <p>{state}</p>
       <button className="button" onClick={() => sendDataToReactNativeApp()}>
         Send Data To React Native
       </button>
