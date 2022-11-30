@@ -1,23 +1,31 @@
 import React, { useState } from "react";
-import { DATA } from "../../DATA";
-import "./MobilePage.css";
+import "./MobilePage.scss";
 
-const sendDataToReactNativeApp = async () => {
-  const jsondata = JSON.stringify(DATA);
+const sendDataToReactNativeApp = async (data) => {
+  const jsondata = JSON.stringify(data);
   window.ReactNativeWebView.postMessage(jsondata);
 };
 
 export const MobilePage = () => {
   const [state, setState] = useState("");
-  window.addEventListener("message", (message) => {
-    setState(message.data);
-  });
+  // window.addEventListener("message", (message) => {
+  //   setState(message.data);
+  // });
+
   return (
     <div className="mobile">
-      <p>Webview / Website</p>
-      <p className="data">Data from Native:</p>
-      <p>{state}</p>
-      <button onClick={sendDataToReactNativeApp} className="button">
+      <h1 className="mobile__title">Webview / Website</h1>
+      <input
+        type="text"
+        className="mobile__input"
+        placeholder="Please here..."
+        value={state}
+        onChange={(event) => setState(event.target.value)}
+      />
+      <button
+        onClick={() => sendDataToReactNativeApp(state)}
+        className="mobile__button"
+      >
         Send Data To React Native
       </button>
     </div>
