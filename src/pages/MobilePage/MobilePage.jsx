@@ -8,10 +8,9 @@ const sendDataToReactNativeApp = async (data) => {
 
 export const MobilePage = () => {
   const [state, setState] = useState("");
-  // window.addEventListener("message", (message) => {
-  //   setState(message.data);
-  // });
-
+  window.addEventListener("message", (message) => {
+    setState(message.data);
+  });
   return (
     <div className="mobile">
       <h1 className="mobile__title">Webview / Website</h1>
