@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import { DATA } from "../DATA";
+import { DATA } from "../../DATA";
 import "./MobilePage.css";
 
 const sendDataToReactNativeApp = async () => {
   const jsondata = JSON.stringify(DATA);
   window.ReactNativeWebView.postMessage(jsondata);
 };
-// window.addEventListener("message", (message) => {
-//   alert(message.data);
-// });
 
 export const MobilePage = () => {
   const [state, setState] = useState("");
-
   window.addEventListener("message", (message) => {
     setState(message.data);
   });
