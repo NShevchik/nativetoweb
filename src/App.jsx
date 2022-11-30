@@ -27,19 +27,17 @@ function getPlatform() {
 var device = getPlatform();
 
 export const App = () => {
-  return device === "Windows" ||
-    device === "Macintosh" ||
-    device === "Linux" ? (
+  return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ErrorPage />} />
-      </Routes>
-    </BrowserRouter>
-  ) : (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MobilePage />} />
-      </Routes>
+      {device === "Windows" || device === "Macintosh" || device === "Linux" ? (
+        <Routes>
+          <Route path="*" element={<MobilePage />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={<MobilePage />} />
+        </Routes>
+      )}
     </BrowserRouter>
   );
 };
